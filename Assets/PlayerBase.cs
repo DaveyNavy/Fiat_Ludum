@@ -9,14 +9,14 @@ public class PlayerBase : MonoBehaviour
 
     Vector2 movement = new Vector2(0, 0);
     Rigidbody2D rb;
+    public bool grounded;
 
     void Start()
     {
         input = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
-        input.DeactivateInput();
+        // input.DeactivateInput();
     }
-
     void FixedUpdate()
     {
         rb.position += new Vector2(movement.x * speed * Time.deltaTime, 0);
@@ -31,6 +31,24 @@ public class PlayerBase : MonoBehaviour
     public void SetEnabled()
     {
         input.ActivateInput();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            grounded = true;
+            Debug.Log("grounded");
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            grounded = false;
+            Debug.Log("weeee (ungrounded)");
+        }
     }
 
     public void DestroySelf()
