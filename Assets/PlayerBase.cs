@@ -1,0 +1,42 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerBase : MonoBehaviour
+{
+    PlayerInput input;
+    [SerializeField] Soul soul;
+    [SerializeField] float speed;
+
+    Vector2 movement = new Vector2(0, 0);
+    Rigidbody2D rb;
+
+    void Start()
+    {
+        input = GetComponent<PlayerInput>();
+        rb = GetComponent<Rigidbody2D>();
+        input.DeactivateInput();
+    }
+
+    void FixedUpdate()
+    {
+        rb.position += new Vector2(movement.x * speed * Time.deltaTime, 0);
+    }
+
+    void OnMove(InputValue value)
+    {
+        Vector2 v = value.Get<Vector2>();
+        movement = v;
+    }
+
+    public void SetEnabled()
+    {
+        input.ActivateInput();
+    }
+
+    public void DestroySelf()
+    {
+        input.DeactivateInput() ;
+        this.gameObject.SetActive(false);
+        soul.ActivateSelf();
+    }
+}
