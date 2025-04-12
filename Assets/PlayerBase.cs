@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerBase : MonoBehaviour
+public abstract class PlayerBase : MonoBehaviour
 {
     PlayerInput input;
     [SerializeField] Soul soul;
@@ -27,6 +27,8 @@ public class PlayerBase : MonoBehaviour
         Vector2 v = value.Get<Vector2>();
         movement = v;
     }
+
+    public abstract void OnInteract();
 
     public void SetEnabled()
     {
