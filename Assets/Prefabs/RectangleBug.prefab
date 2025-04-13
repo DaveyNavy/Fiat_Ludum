@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e46243199848d544ada490cdd8085c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soul: {fileID: 5431658512496088903, guid: a7e3d335542844540b22245b67fcaeb4, type: 3}
+  soul: {fileID: 5036556320756036669, guid: a7e3d335542844540b22245b67fcaeb4, type: 3}
   speed: 5
   grounded: 0
   facingRight: 1

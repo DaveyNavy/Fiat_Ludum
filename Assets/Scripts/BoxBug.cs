@@ -12,6 +12,7 @@ public class BoxBug : PlayerBase
     {
         if (grounded)
         {
+            DestroySelf();
             MakeBox();
         } else
         {
@@ -25,15 +26,14 @@ public class BoxBug : PlayerBase
         Debug.Log("Make a box!");
         boxReal = Instantiate(box, this.transform.position, Quaternion.identity);
         boxReal.tag = "Ground";
-        DestroySelf();
     }
 
     // This should create a box at the player location when player dies
-    //private void OnDisable()
-    //{
-    //    if (gameObject.scene.isLoaded)
-    //    {
-    //        MakeBox();
-    //    }
-    //}
+    private void OnDisable()
+    {
+        if (gameObject.scene.isLoaded)
+        {
+            MakeBox();
+        }
+    }
 }
