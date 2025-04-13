@@ -2,19 +2,16 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class BoxGuy : MonoBehaviour
+public class BoxGuy : PlayerBase
 {
-    PlayerInput input;
     [SerializeField] GameObject box;
     [SerializeField] Material previewMaterialPrefab;
     GameObject boxPreview; 
     Material previewMaterialInstance;
     GameObject boxReal;
-    PlayerBase pb;
     Box boxPreScript;
 
     float offset = 2;
-    int facingRight = 1;
     Vector2 v;
     bool previewGrounded;
     Renderer boxRenderer;
@@ -22,8 +19,7 @@ public class BoxGuy : MonoBehaviour
     // Get components, make materials, make box preview, yay
     void Start()
     {
-        input = GetComponent<PlayerInput>();
-        pb = GetComponent<PlayerBase>();
+        base.Start();
         previewMaterialInstance = new Material(previewMaterialPrefab);
         boxPreview = Instantiate(box);
         boxPreScript = boxPreview.GetComponent<Box>();
@@ -40,11 +36,11 @@ public class BoxGuy : MonoBehaviour
         {
             boxPreview.transform.position = new Vector3(this.transform.position.x + (offset * facingRight), this.transform.position.y, this.transform.position.z);
 
-            if (!boxPreScript.grounded || !pb.grounded)
+            if (!boxPreScript.grounded || !grounded)
             {
                 boxRenderer.material.color = Color.red;
             } 
-            else if (boxPreScript.grounded & pb.grounded)
+            else if (boxPreScript.grounded & grounded)
             {
                 boxRenderer.material.color = Color.white;
             }
@@ -53,26 +49,15 @@ public class BoxGuy : MonoBehaviour
     
     // For getting direction, if facingRight = 1, then you are facing right
     // Also makes sure it remembers what direction it was facing in
-    void OnMove(InputValue value)
-    { 
-        v = value.Get<Vector2>();
-        if (v.x == 0) {
-            return;
-        } else if (Mathf.Sign(v.x) > 0) {
-            facingRight = 1;
-        } else {
-            facingRight = -1;
-        }
-    }
 
     // If the player is grounded, make a box when executing
-    void OnExecute()
+    public void OnInteract()
     {
-        if ((pb.grounded && boxPreview) && boxPreScript.grounded)
+        if ((grounded && boxPreview) && boxPreScript.grounded)
         {
             MakeBox();
         } 
-        if (!pb.grounded)
+        if (!grounded)
         {
             Debug.Log("Player not grounded");
         } 

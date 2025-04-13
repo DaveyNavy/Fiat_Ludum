@@ -8,7 +8,6 @@ public class WallBreaker : PlayerBase
         if (collision.CompareTag("Breakable")) {
             breakableObject = collision.gameObject;
             Debug.Log(breakableObject);
-
         }
     }
 
@@ -20,7 +19,7 @@ public class WallBreaker : PlayerBase
         }
     }
 
-    public override void OnInteract()
+    public void OnInteract()
     {
         if (breakableObject)
         {

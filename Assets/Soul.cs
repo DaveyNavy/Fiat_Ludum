@@ -26,8 +26,6 @@ public class Soul : MonoBehaviour
 
     void OnExecute()
     {
-        Debug.Log(currentSelection);
-
         if (currentSelection != null)
         {
             currentSelection.SetEnabled();

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1165767800215293156}
   - component: {fileID: 2308646254020779335}
   - component: {fileID: 4016189426406832638}
-  - component: {fileID: 4639451158861927057}
   - component: {fileID: 5849139421078713794}
   m_Layer: 0
   m_Name: BoxGuy
@@ -195,21 +194,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4639451158861927057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5817835498994194334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9049af3ec5b6d68419a70cf418ff2b6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soul: {fileID: 5431658512496088903, guid: a7e3d335542844540b22245b67fcaeb4, type: 3}
-  speed: 5
-  grounded: 0
 --- !u!114 &5849139421078713794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,5 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b8cb7fbed0b7549bb62016322b44ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soul: {fileID: 0}
+  speed: 0
+  grounded: 0
+  facingRight: 1
   box: {fileID: 7283865386369457383, guid: ecf542c4949204941b7b467105008ba9, type: 3}
   previewMaterialPrefab: {fileID: 2100000, guid: 8a3fe2ea0cf76ef43a107fb755ac4af9, type: 2}

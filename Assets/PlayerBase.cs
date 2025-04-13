@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public abstract class PlayerBase : MonoBehaviour
+public class PlayerBase : MonoBehaviour
 {
     PlayerInput input;
     [SerializeField] Soul soul;
@@ -10,15 +10,17 @@ public abstract class PlayerBase : MonoBehaviour
     Vector2 movement = new Vector2(0, 0);
     Rigidbody2D rb;
     public bool grounded;
+    public int facingRight = 1;
 
-    void Start()
+    protected void Start()
     {
         input = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
-        // input.DeactivateInput();
+        input.DeactivateInput();
     }
     void FixedUpdate()
     {
+        Debug.Log(rb);
         rb.position += new Vector2(movement.x * speed * Time.deltaTime, 0);
     }
 
@@ -26,9 +28,20 @@ public abstract class PlayerBase : MonoBehaviour
     {
         Vector2 v = value.Get<Vector2>();
         movement = v;
-    }
 
-    public abstract void OnInteract();
+        if (v.x == 0)
+        {
+            return;
+        }
+        else if (Mathf.Sign(v.x) > 0)
+        {
+            facingRight = 1;
+        }
+        else
+        {
+            facingRight = -1;
+        }
+    }
 
     public void SetEnabled()
     {
