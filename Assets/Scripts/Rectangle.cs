@@ -26,7 +26,6 @@ public class Rectangle : MonoBehaviour
         else if (collision.gameObject.tag == "Wall")
         {
             wall = false;
-            Debug.Log("Lemme out");
         }
     }
 }
