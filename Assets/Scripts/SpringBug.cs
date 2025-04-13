@@ -8,6 +8,8 @@ public class SpringBug : PlayerBase
     [SerializeField] float offset;
     Vector3 playerHeight;
 
+    bool made = false;
+
     new void Start()
     {
         base.Start();
@@ -28,6 +30,7 @@ public class SpringBug : PlayerBase
 
     void MakeSpring()
     {
+        made = true;
         Debug.Log("Make a spring!");
         springReal = Instantiate(spring, this.transform.position - playerHeight, Quaternion.identity);
         springReal.tag = "Ground";
@@ -35,7 +38,7 @@ public class SpringBug : PlayerBase
     }
     private void OnDisable()
     {
-        if (gameObject.scene.isLoaded)
+        if (gameObject.scene.isLoaded && !made)
         {
             MakeSpring();
         }

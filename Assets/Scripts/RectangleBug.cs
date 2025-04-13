@@ -16,6 +16,8 @@ public class RectangleBug : PlayerBase
     Renderer rectangleRenderer;
     float oldSpeed;
 
+    bool made = false;
+
     // Get components, make materials, make rectangle preview, yay
     new void Start()
     {
@@ -81,6 +83,7 @@ public class RectangleBug : PlayerBase
     // This instantiates a rectangle at preview rectangle location, sets tag to ground, and disables preview
     void Makerectangle()
     {
+        made = true;
         Debug.Log("Make a rectangle!");
         rectangleReal = Instantiate(rectangle, rectanglePreview.transform.position, Quaternion.identity);
         rectangleReal.tag = "Ground";
@@ -91,9 +94,8 @@ public class RectangleBug : PlayerBase
     // This should create a rectangle at the player location when player dies
     private void OnDisable()
     {
-        if (gameObject.scene.isLoaded)
+        if (gameObject.scene.isLoaded && !made)
         {
-            rectanglePreview.transform.position = this.transform.position;
             Makerectangle();
         }
     }

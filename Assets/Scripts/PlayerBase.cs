@@ -12,12 +12,16 @@ public class PlayerBase : MonoBehaviour
     Rigidbody2D rb;
     public bool grounded;
     public int facingRight = 1;
+    SpriteRenderer spriterenderer;
+
+    Animator animator;
 
     protected void Start()
     {
         input = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
-        //input.DeactivateInput();
+        animator = GetComponent<Animator>();
+        spriterenderer = GetComponent<SpriteRenderer>();
     }
     void FixedUpdate()
     {
@@ -28,6 +32,7 @@ public class PlayerBase : MonoBehaviour
     {
         Vector2 v = value.Get<Vector2>();
         movement = v;
+        animator.SetBool("Walking", !Mathf.Approximately(v.x, 0));
 
         if (v.x == 0)
         {
@@ -36,11 +41,14 @@ public class PlayerBase : MonoBehaviour
         else if (Mathf.Sign(v.x) > 0)
         {
             facingRight = 1;
+            spriterenderer.flipX = false;
         }
         else
         {
             facingRight = -1;
+            spriterenderer.flipX = true;
         }
+
     }
     void OnRestart()
     {
