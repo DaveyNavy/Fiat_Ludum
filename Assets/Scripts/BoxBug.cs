@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class BoxBug : PlayerBase
 {
     [SerializeField] GameObject box;
-    [SerializeField] Material previewMaterialPrefab;
     GameObject boxReal;
 
     // If the player is grounded, make a box when executing

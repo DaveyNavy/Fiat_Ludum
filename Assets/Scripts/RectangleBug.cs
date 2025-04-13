@@ -85,6 +85,7 @@ public class RectangleBug : PlayerBase
         rectangleReal = Instantiate(rectangle, rectanglePreview.transform.position, Quaternion.identity);
         rectangleReal.tag = "Ground";
         rectanglePreview.SetActive(false);
+        DestroySelf();
     }
 
     // This should create a rectangle at the player location when player dies
