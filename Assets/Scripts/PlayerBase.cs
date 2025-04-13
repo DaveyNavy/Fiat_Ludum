@@ -52,31 +52,27 @@ public class PlayerBase : MonoBehaviour
     }
     void OnRestart()
     {
-        Debug.Log("Restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = true;
-            Debug.Log("grounded");
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = false;
-            Debug.Log("weeee (ungrounded)");
         }
     }
 
     public void DestroySelf()
     {
-        Debug.Log("destroy self");
         Instantiate(soul, transform.position, transform.rotation);
         Destroy(gameObject);
     }

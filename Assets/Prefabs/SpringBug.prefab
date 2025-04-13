@@ -212,7 +212,7 @@ MonoBehaviour:
   grounded: 0
   facingRight: 1
   spring: {fileID: 700818014162175875, guid: 2fc509830653bd147a808e818c1c3127, type: 3}
-  offset: 0.7
+  offset: 0.2
 --- !u!95 &5551998245766248885
 Animator:
   serializedVersion: 7
