@@ -14,6 +14,7 @@ public class RectangleBug : PlayerBase
     float offsetX = 0;
     float offsetY = 0;    
     Renderer rectangleRenderer;
+    Renderer bugRenderer;
     float oldSpeed;
 
     bool made = false;
@@ -27,8 +28,9 @@ public class RectangleBug : PlayerBase
         rectanglePreview = Instantiate(rectangle);
         rectanglePreScript = rectanglePreview.GetComponent<Rectangle>();
         rectangleRenderer = rectanglePreview.GetComponent<Renderer>();
+        bugRenderer = GetComponent<Renderer>();
         rectangleRenderer.material = previewMaterialInstance;
-        offsetX = (float) Math.Ceiling(rectangleRenderer.bounds.size.x * 0.5);
+        offsetX = (float) (Math.Ceiling(rectangleRenderer.bounds.size.x * 0.6));
         offsetY = (float)Math.Ceiling(rectangleRenderer.bounds.size.y * 0.5);
         oldSpeed = speed;
     }

@@ -23,7 +23,10 @@ public class PlayerBase : MonoBehaviour
     }
     void FixedUpdate()
     {
-        rb.position += new Vector2(movement.x * speed * Time.deltaTime, 0);
+        if (grounded)
+        {
+            rb.position += new Vector2(movement.x * speed * Time.deltaTime, 0);
+        }
     }
 
     void OnMove(InputValue value)
