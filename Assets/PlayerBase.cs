@@ -5,7 +5,7 @@ public class PlayerBase : MonoBehaviour
 {
     PlayerInput input;
     [SerializeField] Soul soul;
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
 
     Vector2 movement = new Vector2(0, 0);
     Rigidbody2D rb;

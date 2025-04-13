@@ -15,6 +15,7 @@ public class BoxGuy : PlayerBase
     Vector2 v;
     bool previewGrounded;
     Renderer boxRenderer;
+    float oldSpeed;
 
     // Get components, make materials, make box preview, yay
     void Start()
@@ -25,6 +26,7 @@ public class BoxGuy : PlayerBase
         boxPreScript = boxPreview.GetComponent<Box>();
         boxRenderer = boxPreview.GetComponent<Renderer>();
         boxRenderer.material = previewMaterialInstance;
+        oldSpeed = pb.speed;
     }
 
     // if boxPreview exists, move position
@@ -32,17 +34,25 @@ public class BoxGuy : PlayerBase
     void Update()
     {
 
+        if (boxPreScript.wall)
+        {
+            pb.speed = 0;
+        } else if (!boxPreScript.wall)
+        {
+            pb.speed = oldSpeed;
+        }
+        
         if (boxPreview)
         {
             boxPreview.transform.position = new Vector3(this.transform.position.x + (offset * facingRight), this.transform.position.y, this.transform.position.z);
 
             if (!boxPreScript.grounded || !grounded)
             {
-                boxRenderer.material.color = Color.red;
+                boxRenderer.material.color = new Color(Color.red.r, Color.red.g, Color.red.b, previewMaterialInstance.color.a);
             } 
             else if (boxPreScript.grounded & grounded)
             {
-                boxRenderer.material.color = Color.white;
+                boxRenderer.material = previewMaterialInstance;
             }
         }
     }
