@@ -175,5 +175,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ef1f080f0f27b4899d882c97ad3f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grounded: 1
+  grounded: 0
   wall: 0
