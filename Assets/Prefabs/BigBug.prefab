@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.14693098, y: 0.14693098, z: 0.14693098}
+  m_LocalScale: {x: 0.083009295, y: 0.083009295, z: 0.083009295}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7468026768782768981}
@@ -151,7 +151,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2606330208854225127
 BoxCollider2D:
   m_ObjectHideFlags: 0
