@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,11 +11,15 @@ public class RectangleGuy : MonoBehaviour
     Material previewMaterialInstance;
     GameObject rectangleReal;
     PlayerBase pb;
+    Rectangle rectanglePreScript;
 
     float offset = 2;
-    bool idek = false;
     int facingRight = 1;
     Vector2 v;
+    bool previewGrounded;
+    Renderer rectangleRenderer;
+    float oldSpeed;
+    bool rectangleMade = false;
 
     // Get components, make materials, make rectangle preview, yay
     void Start()
@@ -23,16 +28,38 @@ public class RectangleGuy : MonoBehaviour
         pb = GetComponent<PlayerBase>();
         previewMaterialInstance = new Material(previewMaterialPrefab);
         rectanglePreview = Instantiate(rectangle);
-        Renderer renderer = rectanglePreview.GetComponent<Renderer>();
-        renderer.material = previewMaterialInstance;
+        rectanglePreScript = rectanglePreview.GetComponent<Rectangle>();
+        rectangleRenderer = rectanglePreview.GetComponent<Renderer>();
+        rectangleRenderer.material = previewMaterialInstance;
+        oldSpeed = pb.speed;
     }
 
-    // Set rectangle location with proper offset and direction
+    // if rectanglePreview exists, move position
+    // if not grounded, make red, else make white
     void Update()
     {
-        if (!idek && rectanglePreview)
+
+        if (rectanglePreview)
         {
+            if (rectanglePreScript.wall)
+            {
+                pb.speed = 0;
+            }
+            else if (!rectanglePreScript.wall)
+            {
+                pb.speed = oldSpeed;
+            }
+
             rectanglePreview.transform.position = new Vector3(this.transform.position.x + (offset * facingRight), this.transform.position.y, this.transform.position.z);
+
+            if (!rectanglePreScript.grounded || !pb.grounded)
+            {
+                rectangleRenderer.material.color = new Color(Color.red.r, Color.red.g, Color.red.b, previewMaterialInstance.color.a);
+            }
+            else if (rectanglePreScript.grounded & pb.grounded)
+            {
+                rectangleRenderer.material = previewMaterialInstance;
+            }
         }
     }
 
@@ -58,28 +85,41 @@ public class RectangleGuy : MonoBehaviour
     // If the player is grounded, make a rectangle when executing
     void OnExecute()
     {
-        if (pb.grounded)
+        if (rectanglePreview)
         {
-            MakeRectangle();
+            if (pb.grounded && rectanglePreScript.grounded)
+            {
+                Makerectangle();
+            }
+            if (!pb.grounded)
+            {
+                Debug.Log("Player not grounded");
+            }
+            if (!rectanglePreScript.grounded)
+            {
+                Debug.Log("rectangle location bad :(");
+            }
         }
     }
 
     // This instantiates a rectangle at preview rectangle location, sets tag to ground, and disables preview
-    void MakeRectangle()
+    void Makerectangle()
     {
         Debug.Log("Make a rectangle!");
+        rectangleMade = true;
         rectangleReal = Instantiate(rectangle, rectanglePreview.transform.position, Quaternion.identity);
-        rectangleReal.tag = "Ground";
+        rectangleReal.tag = "Wall";
         rectanglePreview.SetActive(false);
+        pb.DestroySelf();
     }
 
     // This should create a rectangle at the player location when player dies
     private void OnDisable()
     {
-        if (gameObject.scene.isLoaded)
+        if (gameObject.scene.isLoaded && !rectangleMade)
         {
             rectanglePreview.transform.position = this.transform.position;
-            MakeRectangle();
+            Makerectangle();
         }
     }
 }
