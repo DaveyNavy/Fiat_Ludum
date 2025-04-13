@@ -50,7 +50,7 @@ public class RectangleBug : PlayerBase
 
         if (rectanglePreview)
         {
-            rectanglePreview.transform.position = new Vector3(this.transform.position.x + (offsetX * facingRight), this.transform.position.y - offsetY, this.transform.position.z);
+            rectanglePreview.transform.position = new Vector3(this.transform.position.x + (offsetX * facingRight), this.transform.position.y - offsetY + 0.6f, this.transform.position.z);
 
             if (!rectanglePreScript.grounded || !grounded)
             {
