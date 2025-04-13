@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class BoxBug : PlayerBase
 {
     [SerializeField] GameObject box;
-    [SerializeField] Material previewMaterialPrefab;
     GameObject boxReal;
 
     // If the player is grounded, make a box when executing
@@ -26,6 +25,7 @@ public class BoxBug : PlayerBase
         Debug.Log("Make a box!");
         boxReal = Instantiate(box, this.transform.position, Quaternion.identity);
         boxReal.tag = "Ground";
+        DestroySelf();
     }
 
     // This should create a box at the player location when player dies
