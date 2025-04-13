@@ -6,7 +6,7 @@ public class Soul : MonoBehaviour
     Vector2 movement;
     Rigidbody2D rb;
     [SerializeField] float speed = 3;
-    PlayerBase currentSelection = null;
+    Egg currentSelection = null;
 
     void Start()
     {
@@ -28,8 +28,7 @@ public class Soul : MonoBehaviour
     {
         if (currentSelection != null)
         {
-            currentSelection.SetEnabled();
-
+            currentSelection.InstantiateBug();
             this.gameObject.SetActive(false);
         }
     }
@@ -43,12 +42,15 @@ public class Soul : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            currentSelection = collision.GetComponent<PlayerBase>();
+            currentSelection = collision.GetComponent<Egg>();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        currentSelection = null;
+        if (collision.CompareTag("Player"))
+        {
+            currentSelection = null;
+        }
     }
 }

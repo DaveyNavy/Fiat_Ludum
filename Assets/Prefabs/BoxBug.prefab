@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4016189426406832638}
   - component: {fileID: 5849139421078713794}
   m_Layer: 0
-  m_Name: BoxGuy
+  m_Name: BoxBug
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

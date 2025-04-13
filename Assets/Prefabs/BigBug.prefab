@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2606330208854225127}
   - component: {fileID: 324599114118687209}
   m_Layer: 0
-  m_Name: WallBreaker
+  m_Name: BigBug
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

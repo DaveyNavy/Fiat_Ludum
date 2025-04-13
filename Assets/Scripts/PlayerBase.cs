@@ -16,11 +16,10 @@ public class PlayerBase : MonoBehaviour
     {
         input = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
-        input.DeactivateInput();
+        //input.DeactivateInput();
     }
     void FixedUpdate()
     {
-        Debug.Log(rb);
         rb.position += new Vector2(movement.x * speed * Time.deltaTime, 0);
     }
 
@@ -41,11 +40,6 @@ public class PlayerBase : MonoBehaviour
         {
             facingRight = -1;
         }
-    }
-
-    public void SetEnabled()
-    {
-        input.ActivateInput();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
