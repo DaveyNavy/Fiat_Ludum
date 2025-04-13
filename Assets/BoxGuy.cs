@@ -26,7 +26,7 @@ public class BoxGuy : PlayerBase
         boxPreScript = boxPreview.GetComponent<Box>();
         boxRenderer = boxPreview.GetComponent<Renderer>();
         boxRenderer.material = previewMaterialInstance;
-        oldSpeed = pb.speed;
+        oldSpeed = speed;
     }
 
     // if boxPreview exists, move position
@@ -36,10 +36,10 @@ public class BoxGuy : PlayerBase
 
         if (boxPreScript.wall)
         {
-            pb.speed = 0;
+            speed = 0;
         } else if (!boxPreScript.wall)
         {
-            pb.speed = oldSpeed;
+            speed = oldSpeed;
         }
         
         if (boxPreview)
