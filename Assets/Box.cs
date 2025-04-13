@@ -3,13 +3,17 @@ using UnityEngine;
 public class Box : MonoBehaviour
 {
     public bool grounded = true;
+    public bool wall = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
-            Debug.Log("box grounded");
+        } 
+        else if (collision.gameObject.tag == "Wall")
+        {
+            wall = true;
         }
     }
 
@@ -18,7 +22,11 @@ public class Box : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = false;
-            Debug.Log("box ungrounded");
+        } 
+        else if (collision.gameObject.tag == "Wall")
+        {
+            wall = false;
+            Debug.Log("Lemme out");
         }
     }
 }
