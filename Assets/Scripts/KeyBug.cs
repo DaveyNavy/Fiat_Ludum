@@ -14,17 +14,9 @@ public class KeyBug : PlayerBase
     {
         if (collider.gameObject.CompareTag("Goal"))
         {
-            collider.gameObject.GetComponent<Door>().OpenDoor();
-            Destroy(gameObject);
-            wait(collider);
+            DestroySelf();
+            Destroy(collider.gameObject);
+            gameManager.DecrementGoalsNeeded();
         }
-    }
-
-    IEnumerator wait(Collider2D collider)
-    {
-        yield return new WaitForSeconds(3f);
-        Debug.Log("help");
-        Destroy(collider.gameObject);
-        gameManager.DecrementGoalsNeeded();
     }
 }

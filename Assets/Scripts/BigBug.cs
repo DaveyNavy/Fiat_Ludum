@@ -3,11 +3,10 @@ using UnityEngine;
 public class BigBug : PlayerBase
 {
     private GameObject breakableObject = null;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Breakable")) {
             breakableObject = collision.gameObject;
-            Debug.Log(breakableObject);
         }
     }
 
@@ -21,6 +20,8 @@ public class BigBug : PlayerBase
 
     public void OnInteract()
     {
+        Debug.Log(breakableObject);
+
         if (breakableObject)
         {
             breakableObject.SetActive(false);
