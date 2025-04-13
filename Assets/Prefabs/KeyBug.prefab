@@ -108,6 +108,7 @@ MonoBehaviour:
   speed: 5
   grounded: 0
   facingRight: 1
+  gameManager: {fileID: 3603092582396621430, guid: e77e4a53f492781409b1cac29d561240, type: 3}
 --- !u!50 &6305427086661942724
 Rigidbody2D:
   serializedVersion: 5
