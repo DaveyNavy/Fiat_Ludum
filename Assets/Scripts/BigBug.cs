@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WallBreaker : PlayerBase
+public class BigBug : PlayerBase
 {
     private GameObject breakableObject = null;
     private void OnTriggerEnter2D(Collider2D collision)
