@@ -8,6 +8,10 @@ public class Spikes : MonoBehaviour
         {
             Debug.Log("player spiked");
             collision.GetComponent<PlayerBase>().DestroySelf();
+
+        } else if (collision.gameObject.tag == "Ground")
+        {
+            Destroy(gameObject);
         }
     }
 }
