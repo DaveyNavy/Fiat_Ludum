@@ -30,18 +30,12 @@ public class Soul : MonoBehaviour
         if (currentSelection != null)
         {
             currentSelection.InstantiateBug();
-            this.gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
     void OnRestart()
     {
-        Debug.Log("Restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void ActivateSelf()
-    {
-        this.gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

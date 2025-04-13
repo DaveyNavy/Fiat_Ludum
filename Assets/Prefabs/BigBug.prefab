@@ -209,8 +209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd3b1b1ac5441940a3532c6fd617746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soul: {fileID: 5431658512496088903, guid: a7e3d335542844540b22245b67fcaeb4, type: 3}
+  soul: {fileID: 5036556320756036669, guid: a7e3d335542844540b22245b67fcaeb4, type: 3}
   speed: 5
+  grounded: 0
+  facingRight: 1
 --- !u!1 &955087561553002855
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerBase : MonoBehaviour
 {
     PlayerInput input;
-    [SerializeField] Soul soul;
+    [SerializeField] GameObject soul;
     [SerializeField] public float speed;
 
     Vector2 movement = new Vector2(0, 0);
@@ -68,8 +68,8 @@ public class PlayerBase : MonoBehaviour
 
     public void DestroySelf()
     {
-        input.DeactivateInput() ;
-        this.gameObject.SetActive(false);
-        soul.ActivateSelf();
+        Debug.Log("destroy self");
+        Instantiate(soul, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }
