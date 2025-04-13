@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -68,7 +69,7 @@ public class PlayerBase : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            grounded = false;
+            StartCoroutine(RevertGroundedCoroutine());
         }
     }
 
@@ -76,5 +77,11 @@ public class PlayerBase : MonoBehaviour
     {
         Instantiate(soul, transform.position, transform.rotation);
         Destroy(gameObject);
+    }
+
+    IEnumerator RevertGroundedCoroutine()
+    {
+        yield return new WaitForSeconds(0.4f);
+        grounded = false;
     }
 }

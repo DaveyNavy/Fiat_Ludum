@@ -26,7 +26,7 @@ public class BoxBug : PlayerBase
     {
         made = true;
         Debug.Log("Make a box!");
-        boxReal = Instantiate(box, this.transform.position + new Vector3(0, 0.55f, 0), Quaternion.identity);
+        boxReal = Instantiate(box, this.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
         boxReal.tag = "Ground";
     }
 
