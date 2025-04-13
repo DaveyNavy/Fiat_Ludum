@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +18,15 @@ public class GameManager : MonoBehaviour
         numGoals--;
         if (numGoals == 0)
         {
-            Debug.Log("Level Finished");
+            StartCoroutine(SwitchScenesCoroutine());
         }
+    }
+
+    IEnumerator SwitchScenesCoroutine()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        int currLevel = Int32.Parse(sceneName.Split(" ")[1]);
+        yield return new WaitForSeconds(3.4f);
+        SceneManager.LoadScene("Level " + (currLevel + 1));
     }
 }

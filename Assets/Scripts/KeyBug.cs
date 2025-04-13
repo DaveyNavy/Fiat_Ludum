@@ -4,6 +4,7 @@ using UnityEngine;
 public class KeyBug : PlayerBase
 {
     GameManager gameManager;
+    Collider2D doorCollider;
     new void Start()
     {
         base.Start();
@@ -14,9 +15,17 @@ public class KeyBug : PlayerBase
     {
         if (collider.gameObject.CompareTag("Goal"))
         {
-            DestroySelf();
-            Destroy(collider.gameObject);
+            (collider.GetComponent<Door>()).DestroyDoor();
             gameManager.DecrementGoalsNeeded();
+            Renderer r = GetComponent<Renderer>();
+            r.enabled = false;
+            StartCoroutine(DestroySelfCoroutine());
         }
+    }
+
+    IEnumerator DestroySelfCoroutine()
+    {
+        yield return new WaitForSeconds(3.5f);
+        DestroySelf();
     }
 }
