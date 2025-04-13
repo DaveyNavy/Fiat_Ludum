@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 4709816988483688665}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.11, y: -1.53, z: 0}
-  m_LocalScale: {x: 0.05635389, y: 0.05635389, z: 0.05635389}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,7 +108,6 @@ MonoBehaviour:
   speed: 5
   grounded: 0
   facingRight: 1
-  gameManager: {fileID: 3603092582396621430, guid: e77e4a53f492781409b1cac29d561240, type: 3}
 --- !u!50 &6305427086661942724
 Rigidbody2D:
   serializedVersion: 5

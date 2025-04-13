@@ -13,7 +13,7 @@ public class KeyBug : PlayerBase
     {
         if (collider.gameObject.CompareTag("Goal"))
         {
-            Destroy(gameObject);
+            DestroySelf();
             Destroy(collider.gameObject);
             gameManager.DecrementGoalsNeeded();
         }
