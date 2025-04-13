@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Soul : MonoBehaviour
 {
@@ -31,6 +32,11 @@ public class Soul : MonoBehaviour
             currentSelection.InstantiateBug();
             this.gameObject.SetActive(false);
         }
+    }
+    void OnRestart()
+    {
+        Debug.Log("Restart");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ActivateSelf()
