@@ -16,7 +16,7 @@ public class PlayerBase : MonoBehaviour
     {
         input = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
-        // input.DeactivateInput();
+        input.DeactivateInput();
     }
     void FixedUpdate()
     {

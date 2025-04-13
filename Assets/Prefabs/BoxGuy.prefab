@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b8cb7fbed0b7549bb62016322b44ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soul: {fileID: 0}
-  speed: 0
+  soul: {fileID: 5431658512496088903, guid: a7e3d335542844540b22245b67fcaeb4, type: 3}
+  speed: 5
   grounded: 0
   facingRight: 1
   box: {fileID: 7283865386369457383, guid: ecf542c4949204941b7b467105008ba9, type: 3}

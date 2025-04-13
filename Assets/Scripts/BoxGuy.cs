@@ -12,13 +12,12 @@ public class BoxGuy : PlayerBase
     Box boxPreScript;
 
     float offset = 2;
-    Vector2 v;
     bool previewGrounded;
     Renderer boxRenderer;
     float oldSpeed;
 
     // Get components, make materials, make box preview, yay
-    void Start()
+    new void Start()
     {
         base.Start();
         Debug.Log("start?");
@@ -34,7 +33,6 @@ public class BoxGuy : PlayerBase
     // if not grounded, make red, else make white
     void Update()
     {
-
         if (boxPreScript.wall)
         {
             speed = 0;
@@ -57,9 +55,6 @@ public class BoxGuy : PlayerBase
             }
         }
     }
-    
-    // For getting direction, if facingRight = 1, then you are facing right
-    // Also makes sure it remembers what direction it was facing in
 
     // If the player is grounded, make a box when executing
     public void OnInteract()
