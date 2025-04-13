@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class KeyBug : PlayerBase
@@ -13,9 +14,17 @@ public class KeyBug : PlayerBase
     {
         if (collider.gameObject.CompareTag("Goal"))
         {
+            collider.gameObject.GetComponent<Door>().OpenDoor();
             Destroy(gameObject);
-            Destroy(collider.gameObject);
-            gameManager.DecrementGoalsNeeded();
+            wait(collider);
         }
+    }
+
+    IEnumerator wait(Collider2D collider)
+    {
+        yield return new WaitForSeconds(3f);
+        Debug.Log("help");
+        Destroy(collider.gameObject);
+        gameManager.DecrementGoalsNeeded();
     }
 }

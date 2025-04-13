@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerBase : MonoBehaviour
 {
-    PlayerInput input;
     [SerializeField] GameObject soul;
     [SerializeField] public float speed;
 
@@ -18,7 +17,6 @@ public class PlayerBase : MonoBehaviour
 
     protected void Start()
     {
-        input = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriterenderer = GetComponent<SpriteRenderer>();
