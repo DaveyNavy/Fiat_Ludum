@@ -5,7 +5,7 @@ public class Rectangle : MonoBehaviour
     public bool grounded = true;
     public bool wall = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
