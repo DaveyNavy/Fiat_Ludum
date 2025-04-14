@@ -30,7 +30,7 @@ public class RectangleBug : PlayerBase
         rectangleRenderer = rectanglePreview.GetComponent<Renderer>();
         bugRenderer = GetComponent<Renderer>();
         rectangleRenderer.material = previewMaterialInstance;
-        offsetX = (float) (Math.Ceiling(rectangleRenderer.bounds.size.x * 0.5));
+        offsetX = (float) (Math.Ceiling(rectangleRenderer.bounds.size.x * 0.5) + 1);
         offsetY = (float)Math.Ceiling(rectangleRenderer.bounds.size.y * 0.5);
         offsetY = offsetY + 0.1f;
         oldSpeed = speed;
