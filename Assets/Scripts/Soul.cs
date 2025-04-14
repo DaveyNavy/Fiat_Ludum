@@ -28,7 +28,7 @@ public class Soul : MonoBehaviour
     }
 
     IEnumerator wait() {
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1f);
         moving = true;
     }
 
