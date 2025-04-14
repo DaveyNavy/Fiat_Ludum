@@ -7,6 +7,7 @@ public class RectangleBug : PlayerBase
 {
     [SerializeField] GameObject rectangle;
     [SerializeField] Material previewMaterialPrefab;
+    [SerializeField] AudioClip createBridge;
     GameObject rectanglePreview;
     Material previewMaterialInstance;
     GameObject rectangleReal;
@@ -103,6 +104,7 @@ public class RectangleBug : PlayerBase
     IEnumerator RectangleBugDies()
     {
         yield return new WaitForSeconds(1.23f);
+        AudioSource.PlayClipAtPoint(createBridge, transform.position, 1f);
         rectangleReal = Instantiate(rectangle, rectanglePreview.transform.position, Quaternion.identity);
         rectangleReal.tag = "Ground";
         rectanglePreview.SetActive(false);

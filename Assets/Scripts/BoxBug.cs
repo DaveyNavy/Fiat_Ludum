@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class BoxBug : PlayerBase
 {
     [SerializeField] GameObject box;
+    [SerializeField] AudioClip transformBox;
     GameObject boxReal;
     bool made = false;
 
@@ -31,6 +32,7 @@ public class BoxBug : PlayerBase
     }
 
     IEnumerator BoxBugDies() {
+        AudioSource.PlayClipAtPoint(transformBox, transform.position, 1f);
         yield return new WaitForSeconds(2.15f);
         boxReal = Instantiate(box, this.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
         boxReal.tag = "Ground";

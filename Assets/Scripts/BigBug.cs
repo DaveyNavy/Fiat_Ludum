@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class BigBug : PlayerBase
 {
+    [SerializeField] AudioClip breakRock;
     private GameObject breakableObject = null;
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -33,6 +34,7 @@ public class BigBug : PlayerBase
     IEnumerator BigBugDies() {
         
         animator.Play("BigBoyDie");
+        AudioSource.PlayClipAtPoint(breakRock, transform.position, 1f);
         yield return new WaitForSeconds(2.15f);
         if (breakableObject.GetComponentInChildren<Tilemap>()) 
         {

@@ -7,6 +7,7 @@ public class SpringBug : PlayerBase
     [SerializeField] GameObject spring;
     GameObject springReal;
     [SerializeField] float offset;
+    [SerializeField] AudioClip springTransform;
     Vector3 playerHeight;
 
     bool made = false;
@@ -38,6 +39,7 @@ public class SpringBug : PlayerBase
     }
 
     IEnumerator SpringBugDie() {
+        AudioSource.PlayClipAtPoint(springTransform, transform.position, 1f);
         yield return new WaitForSeconds(1.15f);
         springReal = Instantiate(spring, this.transform.position, Quaternion.identity);
         springReal.tag = "Ground";

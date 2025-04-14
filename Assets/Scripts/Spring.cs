@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spring : MonoBehaviour
 {
     [SerializeField] float tp;
+    [SerializeField] AudioClip bounce;
     float thrust = 17;
     GameObject player;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -14,6 +15,7 @@ public class Spring : MonoBehaviour
             Debug.Log("player collided");
             player = collision.gameObject;
             player.GetComponent<BoxCollider2D>().isTrigger = true;
+            AudioSource.PlayClipAtPoint(bounce, transform.position, 1f);
             player.GetComponent<Rigidbody2D>().AddForce(player.transform.up * thrust, ForceMode2D.Impulse);
             StartCoroutine(waitForJump());
         }

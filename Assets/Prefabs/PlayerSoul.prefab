@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  enterEgg: {fileID: 8300000, guid: 55498b8c42c678a4c8ae20fde03af5e0, type: 3}
+  spawnIn: {fileID: 8300000, guid: 4f582e5a27b4f034ab888eba75bae809, type: 3}
 --- !u!114 &6574656925505124003
 MonoBehaviour:
   m_ObjectHideFlags: 0
