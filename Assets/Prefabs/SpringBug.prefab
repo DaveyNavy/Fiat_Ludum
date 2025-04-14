@@ -214,6 +214,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   spring: {fileID: 700818014162175875, guid: 2fc509830653bd147a808e818c1c3127, type: 3}
   offset: 0.2
+  springTransform: {fileID: 8300000, guid: 280428cd3daa5854b93478bfc6442e69, type: 3}
 --- !u!95 &5551998245766248885
 Animator:
   serializedVersion: 7

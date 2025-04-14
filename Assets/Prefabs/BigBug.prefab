@@ -215,6 +215,7 @@ MonoBehaviour:
   grounded: 0
   facingRight: 1
   animator: {fileID: 0}
+  breakRock: {fileID: 8300000, guid: 7e5441fc4d814c04dbe2be320b9f44d5, type: 3}
 --- !u!95 &5266431507394903878
 Animator:
   serializedVersion: 7

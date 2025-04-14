@@ -8,10 +8,13 @@ public class Soul : MonoBehaviour
     Vector2 movement;
     Rigidbody2D rb;
     [SerializeField] float speed = 3;
+    [SerializeField] AudioClip enterEgg;
+    [SerializeField] AudioClip spawnIn;
     Egg currentSelection = null;
     Animator animator;
     SpriteRenderer spriterenderer;
     bool moving = false;
+
 
     void Start()
     {
@@ -20,6 +23,7 @@ public class Soul : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriterenderer = GetComponent<SpriteRenderer>();
+        AudioSource.PlayClipAtPoint(spawnIn, transform.position, 1f);
         if (Camera.main.orthographicSize > 5 )
         {
             speed *= Camera.main.orthographicSize / 5;
@@ -70,6 +74,7 @@ public class Soul : MonoBehaviour
     IEnumerator SoulBugHatch() {
         animator.Play("SoulBugHatch");
         moving = false;
+        AudioSource.PlayClipAtPoint(enterEgg, transform.position, 1f);
         yield return new WaitForSeconds(1.8f);
         currentSelection.InstantiateBug();
         Destroy(gameObject);
