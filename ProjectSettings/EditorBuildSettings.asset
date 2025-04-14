@@ -44,6 +44,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 7.unity
     guid: 5c01211033d1df2449a9572908d00d34
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 39b4f133a25a8ab4198de899892c52a1
+  - enabled: 1
+    path: Assets/Scenes/How To Play.unity
+    guid: 41d62a861f0b1cc4eb58009af573d1cc
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6f1032d5921c7594da1affedf5b1cebe, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
