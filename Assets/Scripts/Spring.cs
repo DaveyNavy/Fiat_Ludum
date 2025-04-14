@@ -21,6 +21,10 @@ public class Spring : MonoBehaviour
         }
     }
 
+
+
+
+
     IEnumerator waitForJump() {
         yield return new WaitForSeconds(0.7f);
         player.GetComponent<BoxCollider2D>().isTrigger = false;
