@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -25,15 +26,21 @@ public class BigBug : PlayerBase
 
         if (breakableObject)
         {
-            
-            if (breakableObject.GetComponentInChildren<Tilemap>()) 
-            {
-                breakableObject.GetComponentInChildren<Tilemap>().ClearAllTiles();
-            } else
-            {
-                breakableObject.SetActive(false);
-            }
-            DestroySelf();
+            StartCoroutine(BigBugDies());
         }
+    }
+
+    IEnumerator BigBugDies() {
+        
+        animator.Play("BigBoyDie");
+        yield return new WaitForSeconds(2.15f);
+        if (breakableObject.GetComponentInChildren<Tilemap>()) 
+        {
+            breakableObject.GetComponentInChildren<Tilemap>().ClearAllTiles();
+        } else
+        {
+            breakableObject.SetActive(false);
+        }
+        DestroySelf();
     }
 }

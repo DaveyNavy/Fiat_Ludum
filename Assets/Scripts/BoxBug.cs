@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +14,6 @@ public class BoxBug : PlayerBase
     {
         if (grounded)
         {
-            DestroySelf();
             MakeBox();
         } else
         {
@@ -26,8 +26,15 @@ public class BoxBug : PlayerBase
     {
         made = true;
         Debug.Log("Make a box!");
+        animator.Play("BoxBugDie");
+        StartCoroutine(BoxBugDies());
+    }
+
+    IEnumerator BoxBugDies() {
+        yield return new WaitForSeconds(2.15f);
         boxReal = Instantiate(box, this.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
         boxReal.tag = "Ground";
+        DestroySelf();
     }
 
     // This should create a box at the player location when player dies
