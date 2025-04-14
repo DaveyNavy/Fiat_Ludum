@@ -82,7 +82,7 @@ public class PlayerBase : MonoBehaviour
 
     IEnumerator RevertGroundedCoroutine()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.15f);
         grounded = false;
     }
 }
