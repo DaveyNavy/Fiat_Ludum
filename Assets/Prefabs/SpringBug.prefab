@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 5587604593718904340, guid: 0846a5a8a9fbb0245a06a80552b9c4e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -211,6 +211,7 @@ MonoBehaviour:
   speed: 5
   grounded: 0
   facingRight: 1
+  animator: {fileID: 0}
   spring: {fileID: 700818014162175875, guid: 2fc509830653bd147a808e818c1c3127, type: 3}
   offset: 0.2
 --- !u!95 &5551998245766248885

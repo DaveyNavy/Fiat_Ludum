@@ -35,6 +35,7 @@ public class Soul : MonoBehaviour
     void Update()
     {
         if (moving) {
+            Debug.Log("Soul Moving");
             rb.position += movement * speed * Time.deltaTime;
         }
     }

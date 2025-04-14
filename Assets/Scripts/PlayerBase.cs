@@ -37,6 +37,7 @@ public class PlayerBase : MonoBehaviour
 
     void OnMove(InputValue value)
     {
+        Debug.Log("Player Moving");
         Vector2 v = value.Get<Vector2>();
         movement = v;
         animator.SetBool("Walking", !Mathf.Approximately(v.x, 0));
