@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +19,9 @@ public class RectangleBug : PlayerBase
     float oldSpeed;
 
     bool made = false;
+    bool dying = false;
+
+    Vector3 currLocation;
 
     // Get components, make materials, make rectangle preview, yay
     new void Start()
@@ -30,10 +34,11 @@ public class RectangleBug : PlayerBase
         rectangleRenderer = rectanglePreview.GetComponent<Renderer>();
         bugRenderer = GetComponent<Renderer>();
         rectangleRenderer.material = previewMaterialInstance;
-        offsetX = (float) (Math.Ceiling(rectangleRenderer.bounds.size.x * 0.5) + 1);
-        offsetY = (float)Math.Ceiling(rectangleRenderer.bounds.size.y * 0.5);
+        offsetX = (float) (Math.Ceiling(rectangleRenderer.bounds.size.x * 0.5));
+        offsetY = (float)Math.Ceiling(rectangleRenderer.bounds.size.y * 0.5) + 0.2f;
         offsetY = offsetY + 0.1f;
         oldSpeed = speed;
+
     }
 
     // if rectanglePreview exists, move position
@@ -51,7 +56,7 @@ public class RectangleBug : PlayerBase
         }
         */
 
-        if (rectanglePreview)
+        if (rectanglePreview && !dying)
         {
             rectanglePreview.transform.position = new Vector3(this.transform.position.x + (offsetX * facingRight), this.transform.position.y - offsetY + 0.6f, this.transform.position.z);
 
@@ -88,6 +93,14 @@ public class RectangleBug : PlayerBase
     {
         made = true;
         Debug.Log("Make a rectangle!");
+        dying = true;
+        animator.Play("RectangleBugDie");
+        StartCoroutine(RectangleBugDies());
+    }
+
+    IEnumerator RectangleBugDies()
+    {
+        yield return new WaitForSeconds(1.23f);
         rectangleReal = Instantiate(rectangle, rectanglePreview.transform.position, Quaternion.identity);
         rectangleReal.tag = "Ground";
         rectanglePreview.SetActive(false);

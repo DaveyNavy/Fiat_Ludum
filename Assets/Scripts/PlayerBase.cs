@@ -9,12 +9,12 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] public float speed;
 
     Vector2 movement = new Vector2(0, 0);
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     public bool grounded;
     public int facingRight = 1;
     SpriteRenderer spriterenderer;
 
-    Animator animator;
+    public Animator animator;
 
     protected void Start()
     {
