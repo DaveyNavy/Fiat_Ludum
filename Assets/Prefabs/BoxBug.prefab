@@ -118,7 +118,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -212,6 +212,7 @@ MonoBehaviour:
   grounded: 0
   facingRight: 1
   animator: {fileID: 0}
+  moving: 1
   box: {fileID: 7283865386369457383, guid: ecf542c4949204941b7b467105008ba9, type: 3}
   transformBox: {fileID: 8300000, guid: c17d3166cd0ad924588f509500e67a36, type: 3}
 --- !u!95 &927984899046336612

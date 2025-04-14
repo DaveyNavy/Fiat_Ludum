@@ -120,8 +120,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -215,6 +215,7 @@ MonoBehaviour:
   grounded: 0
   facingRight: 1
   animator: {fileID: 0}
+  moving: 1
   breakRock: {fileID: 8300000, guid: 7e5441fc4d814c04dbe2be320b9f44d5, type: 3}
 --- !u!95 &5266431507394903878
 Animator:

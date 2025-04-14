@@ -27,12 +27,9 @@ public class PlayerBase : MonoBehaviour
         {
             transform.localScale *= 1 + ((Camera.main.orthographicSize / 5) - 1) / 2;
         }
-        Debug.Log("Current control scheme: " + GetComponent<PlayerInput>().currentControlScheme);
-
     }
     void FixedUpdate()
     {
-        // Debug.Log(grounded);
         if (grounded && moving)
         {
             rb.position += new Vector2(movement.x * speed * Time.deltaTime, 0);
@@ -85,7 +82,10 @@ public class PlayerBase : MonoBehaviour
 
     public void DestroySelf()
     {
-        Instantiate(soul, transform.position, transform.rotation);
+        soul.transform.position = transform.position;
+        InputDevice[] devices = new InputDevice[] { Keyboard.current, Mouse.current };
+        PlayerInput.Instantiate(soul, controlScheme: "Keyboard&Mouse", pairWithDevices: devices);
+        //Instantiate(soul, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
