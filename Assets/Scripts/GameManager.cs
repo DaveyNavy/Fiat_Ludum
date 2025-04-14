@@ -24,9 +24,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SwitchScenesCoroutine()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-        int currLevel = Int32.Parse(sceneName.Split(" ")[1]);
+        int sceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
         yield return new WaitForSeconds(3.4f);
-        SceneManager.LoadScene("Level " + (currLevel + 1));
+        SceneManager.LoadScene(sceneBuildIndex + 1);
     }
 }
