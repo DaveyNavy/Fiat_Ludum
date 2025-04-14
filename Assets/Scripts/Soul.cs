@@ -12,6 +12,11 @@ public class Soul : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (Camera.main.orthographicSize > 5 )
+        {
+            speed *= Camera.main.orthographicSize / 5;
+            transform.localScale *= Camera.main.orthographicSize / 5;
+        }
     }
 
     void Update()

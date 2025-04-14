@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Instantiate(soul);
+        Instantiate(soul, new Vector3(0, 5, 0), new Quaternion(0,0,0,0));
     }
 
     public void DecrementGoalsNeeded()
