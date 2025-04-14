@@ -58,7 +58,7 @@ public class Soul : MonoBehaviour
         }
     }
 
-    void OnExecute()
+    void OnInteract()
     {
         if (currentSelection != null)
         {
