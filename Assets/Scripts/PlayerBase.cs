@@ -9,7 +9,7 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] public float speed;
 
     Vector2 movement = new Vector2(0, 0);
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
     public bool grounded;
     public int facingRight = 1;
     SpriteRenderer spriterenderer;
@@ -24,6 +24,7 @@ public class PlayerBase : MonoBehaviour
     }
     void FixedUpdate()
     {
+        Debug.Log(grounded);
         if (grounded)
         {
             rb.position += new Vector2(movement.x * speed * Time.deltaTime, 0);
