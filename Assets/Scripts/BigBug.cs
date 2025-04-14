@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class BigBug : PlayerBase
 {
@@ -24,7 +25,14 @@ public class BigBug : PlayerBase
 
         if (breakableObject)
         {
-            breakableObject.SetActive(false);
+            
+            if (breakableObject.GetComponentInChildren<Tilemap>()) 
+            {
+                breakableObject.GetComponentInChildren<Tilemap>().ClearAllTiles();
+            } else
+            {
+                breakableObject.SetActive(false);
+            }
             DestroySelf();
         }
     }
