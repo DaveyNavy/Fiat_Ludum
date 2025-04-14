@@ -209,8 +209,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soul: {fileID: 5036556320756036669, guid: a7e3d335542844540b22245b67fcaeb4, type: 3}
   speed: 5
+  rb: {fileID: 0}
   grounded: 0
   facingRight: 1
+  animator: {fileID: 0}
   rectangle: {fileID: 5649522717342226882, guid: 0a841053006381e4e86128dba802a2b2, type: 3}
   previewMaterialPrefab: {fileID: 2100000, guid: 8a3fe2ea0cf76ef43a107fb755ac4af9, type: 2}
 --- !u!95 &8103779801544742881

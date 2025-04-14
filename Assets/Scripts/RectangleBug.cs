@@ -16,6 +16,7 @@ public class RectangleBug : PlayerBase
     float offsetY = 0;    
     Renderer rectangleRenderer;
     Renderer bugRenderer;
+    Collider2D rectCollider;
     float oldSpeed;
 
     bool made = false;
@@ -30,6 +31,8 @@ public class RectangleBug : PlayerBase
         Debug.Log("start?");
         previewMaterialInstance = new Material(previewMaterialPrefab);
         rectanglePreview = Instantiate(rectangle);
+        rectCollider = rectanglePreview.GetComponent<Collider2D>();
+        rectCollider.isTrigger = true;
         rectanglePreScript = rectanglePreview.GetComponent<Rectangle>();
         rectangleRenderer = rectanglePreview.GetComponent<Renderer>();
         bugRenderer = GetComponent<Renderer>();
