@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -32,7 +33,13 @@ public class SpringBug : PlayerBase
     {
         made = true;
         Debug.Log("Make a spring!");
-        springReal = Instantiate(spring, this.transform.position - playerHeight, Quaternion.identity);
+        animator.Play("SpringBugDie");
+        StartCoroutine(SpringBugDie());
+    }
+
+    IEnumerator SpringBugDie() {
+        yield return new WaitForSeconds(1.15f);
+        springReal = Instantiate(spring, this.transform.position, Quaternion.identity);
         springReal.tag = "Ground";
         DestroySelf();
     }
@@ -43,4 +50,6 @@ public class SpringBug : PlayerBase
             MakeSpring();
         }
     }
+
+    // SpringBugDie 1.15
 }
