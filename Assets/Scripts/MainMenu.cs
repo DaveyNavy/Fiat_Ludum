@@ -4,22 +4,18 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] Button playButton;
-    [SerializeField] Button howToPlayButton;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        playButton.onClick.AddListener(Play);
-        howToPlayButton.onClick.AddListener(HowToPlay);
-    }
-
-    void Play()
+    public void Play()
     {
         SceneManager.LoadScene("Level 0");
     }
 
-    void HowToPlay()
+    public void HowToPlay()
     {
         SceneManager.LoadScene("How To Play");
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }
