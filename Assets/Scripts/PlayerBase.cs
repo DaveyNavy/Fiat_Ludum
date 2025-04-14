@@ -21,6 +21,10 @@ public class PlayerBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriterenderer = GetComponent<SpriteRenderer>();
+        if (Camera.main.orthographicSize > 5)
+        {
+            transform.localScale *= 1 + ((Camera.main.orthographicSize / 5) - 1) / 2;
+        }
     }
     void FixedUpdate()
     {
