@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Egg : MonoBehaviour
 {
@@ -6,7 +7,10 @@ public class Egg : MonoBehaviour
 
     public void InstantiateBug()
     {
-        Instantiate(bug, this.transform.position, this.transform.rotation);
+        InputDevice[] devices = new InputDevice[] { Keyboard.current, Mouse.current };
+        PlayerInput.Instantiate(bug, controlScheme: "Keyboard&Mouse", pairWithDevices: devices);
+        
+        //Instantiate(bug, this.transform.position, this.transform.rotation);
         this.gameObject.SetActive(false);   
     }
 }

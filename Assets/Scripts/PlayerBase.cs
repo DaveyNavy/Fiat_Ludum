@@ -25,6 +25,8 @@ public class PlayerBase : MonoBehaviour
         {
             transform.localScale *= 1 + ((Camera.main.orthographicSize / 5) - 1) / 2;
         }
+        Debug.Log("Current control scheme: " + GetComponent<PlayerInput>().currentControlScheme);
+
     }
     void FixedUpdate()
     {
