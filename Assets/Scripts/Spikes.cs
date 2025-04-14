@@ -9,7 +9,10 @@ public class Spikes : MonoBehaviour
             Debug.Log("player spiked");
             collision.GetComponent<PlayerBase>().DestroySelf();
         }
-        else 
+        else if (collision.gameObject.tag == "Ground")
+        {
+            Destroy(gameObject);
+        } else if (collision.gameObject.tag == "Breakable")
         {
             Destroy(gameObject);
         }
