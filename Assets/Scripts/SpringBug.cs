@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -33,6 +34,7 @@ public class SpringBug : PlayerBase
     void MakeSpring()
     {
         made = true;
+        moving = false;
         Debug.Log("Make a spring!");
         animator.Play("SpringBugDie");
         StartCoroutine(SpringBugDie());

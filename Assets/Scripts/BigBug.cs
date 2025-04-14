@@ -32,7 +32,8 @@ public class BigBug : PlayerBase
     }
 
     IEnumerator BigBugDies() {
-        
+
+        moving = false;
         animator.Play("BigBoyDie");
         AudioSource.PlayClipAtPoint(breakRock, transform.position, 1f);
         yield return new WaitForSeconds(2.15f);

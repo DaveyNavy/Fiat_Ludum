@@ -97,6 +97,7 @@ public class RectangleBug : PlayerBase
         made = true;
         Debug.Log("Make a rectangle!");
         dying = true;
+        moving = false;
         animator.Play("RectangleBugDie");
         StartCoroutine(RectangleBugDies());
     }

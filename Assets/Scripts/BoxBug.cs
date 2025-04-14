@@ -26,6 +26,7 @@ public class BoxBug : PlayerBase
     void MakeBox()
     {
         made = true;
+        moving = false;
         Debug.Log("Make a box!");
         animator.Play("BoxBugDie");
         StartCoroutine(BoxBugDies());

@@ -16,6 +16,8 @@ public class PlayerBase : MonoBehaviour
 
     public Animator animator;
 
+    public bool moving = true;
+
     protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,8 +32,8 @@ public class PlayerBase : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Debug.Log(grounded);
-        if (grounded)
+        // Debug.Log(grounded);
+        if (grounded && moving)
         {
             rb.position += new Vector2(movement.x * speed * Time.deltaTime, 0);
         }
@@ -48,12 +50,12 @@ public class PlayerBase : MonoBehaviour
         {
             return;
         }
-        else if (Mathf.Sign(v.x) > 0)
+        else if (Mathf.Sign(v.x) > 0 && moving)
         {
             facingRight = 1;
             spriterenderer.flipX = false;
         }
-        else
+        else if (Mathf.Sign(v.x) < 0 && moving)
         {
             facingRight = -1;
             spriterenderer.flipX = true;
