@@ -11,7 +11,6 @@ public class Egg : MonoBehaviour
         InputDevice[] devices = new InputDevice[] { Keyboard.current, Mouse.current };
         PlayerInput.Instantiate(bug, controlScheme: "Keyboard&Mouse", pairWithDevices: devices);
         
-        //Instantiate(bug, this.transform.position, this.transform.rotation);
-        this.gameObject.SetActive(false);   
+        gameObject.SetActive(false);   
     }
 }

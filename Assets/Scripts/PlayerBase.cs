@@ -38,7 +38,6 @@ public class PlayerBase : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        Debug.Log("Player Moving");
         Vector2 v = value.Get<Vector2>();
         movement = v;
         animator.SetBool("Walking", !Mathf.Approximately(v.x, 0));
@@ -85,7 +84,6 @@ public class PlayerBase : MonoBehaviour
         soul.transform.position = transform.position;
         InputDevice[] devices = new InputDevice[] { Keyboard.current, Mouse.current };
         PlayerInput.Instantiate(soul, controlScheme: "Keyboard&Mouse", pairWithDevices: devices);
-        //Instantiate(soul, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

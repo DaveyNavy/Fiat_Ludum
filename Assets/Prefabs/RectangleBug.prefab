@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5841950494526877306}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -16.2, y: -3.11, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.092605054}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -212,6 +212,7 @@ MonoBehaviour:
   grounded: 0
   facingRight: 1
   animator: {fileID: 0}
+  moving: 1
   rectangle: {fileID: 5649522717342226882, guid: 0a841053006381e4e86128dba802a2b2, type: 3}
   previewMaterialPrefab: {fileID: 2100000, guid: 8a3fe2ea0cf76ef43a107fb755ac4af9, type: 2}
   createBridge: {fileID: 8300000, guid: 855f6ae677c0e8248af4c14dfd7dd5a2, type: 3}

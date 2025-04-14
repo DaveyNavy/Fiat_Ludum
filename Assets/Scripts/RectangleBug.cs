@@ -104,7 +104,7 @@ public class RectangleBug : PlayerBase
 
     IEnumerator RectangleBugDies()
     {
-        yield return new WaitForSeconds(1.23f);
+        yield return new WaitForSeconds(0.6f);
         AudioSource.PlayClipAtPoint(createBridge, transform.position, 1f);
         rectangleReal = Instantiate(rectangle, rectanglePreview.transform.position, Quaternion.identity);
         rectangleReal.tag = "Ground";

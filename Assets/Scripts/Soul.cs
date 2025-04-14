@@ -39,7 +39,6 @@ public class Soul : MonoBehaviour
     void Update()
     {
         if (moving) {
-            // Debug.Log("Soul Moving");
             rb.position += movement * speed * Time.deltaTime;
         }
     }
@@ -75,7 +74,7 @@ public class Soul : MonoBehaviour
         animator.Play("SoulBugHatch");
         moving = false;
         AudioSource.PlayClipAtPoint(enterEgg, transform.position, 1f);
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(1.3f);
         currentSelection.InstantiateBug();
         Destroy(gameObject);
     }

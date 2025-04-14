@@ -27,7 +27,6 @@ public class BoxBug : PlayerBase
     {
         made = true;
         moving = false;
-        Debug.Log("Make a box!");
         animator.Play("BoxBugDie");
         StartCoroutine(BoxBugDies());
     }
@@ -35,7 +34,7 @@ public class BoxBug : PlayerBase
     IEnumerator BoxBugDies() {
         AudioSource.PlayClipAtPoint(transformBox, transform.position, 1f);
         yield return new WaitForSeconds(2.15f);
-        boxReal = Instantiate(box, this.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+        boxReal = Instantiate(box, this.transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
         boxReal.tag = "Ground";
         DestroySelf();
     }

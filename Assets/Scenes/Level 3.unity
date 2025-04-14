@@ -173,12 +173,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1126541668976455154, guid: 1622f2ec9ebe89442b0c88931e500e6c, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126541668976455154, guid: 1622f2ec9ebe89442b0c88931e500e6c, type: 3}
       propertyPath: m_Size.y
       value: 3.708943
       objectReference: {fileID: 0}
     - target: {fileID: 1126541668976455154, guid: 1622f2ec9ebe89442b0c88931e500e6c, type: 3}
       propertyPath: m_Offset.y
       value: 0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126541668976455154, guid: 1622f2ec9ebe89442b0c88931e500e6c, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.476408
       objectReference: {fileID: 0}
     - target: {fileID: 1126541668976455154, guid: 1622f2ec9ebe89442b0c88931e500e6c, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
@@ -190,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5599244445074805780, guid: 1622f2ec9ebe89442b0c88931e500e6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.97
+      value: 8.7318
       objectReference: {fileID: 0}
     - target: {fileID: 5599244445074805780, guid: 1622f2ec9ebe89442b0c88931e500e6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -229,8 +237,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6143109372348927693, guid: 1622f2ec9ebe89442b0c88931e500e6c, type: 3}
+      propertyPath: m_Size.x
+      value: 1.476408
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143109372348927693, guid: 1622f2ec9ebe89442b0c88931e500e6c, type: 3}
       propertyPath: m_Size.y
       value: 3.6770747
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143109372348927693, guid: 1622f2ec9ebe89442b0c88931e500e6c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -667,7 +683,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.000015258789, y: 0, z: 0}
   m_MaxChunkCount: 16
