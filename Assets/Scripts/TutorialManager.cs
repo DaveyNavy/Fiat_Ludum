@@ -7,6 +7,6 @@ public class TutorialManager : MonoBehaviour
     void OnExecute()
     {
         int sceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene((sceneBuildIndex + 1) % 15);
+        SceneManager.LoadScene((sceneBuildIndex + 1) % 18);
     }
 }

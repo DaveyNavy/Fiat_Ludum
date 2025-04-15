@@ -3205,6 +3205,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3603092582396621430, guid: e77e4a53f492781409b1cac29d561240, type: 3}
+      propertyPath: numGoals
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603092582396621430, guid: e77e4a53f492781409b1cac29d561240, type: 3}
       propertyPath: numSpringSecs
       value: 0.4
       objectReference: {fileID: 0}
