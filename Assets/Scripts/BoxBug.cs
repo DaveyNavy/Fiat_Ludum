@@ -34,7 +34,7 @@ public class BoxBug : PlayerBase
     IEnumerator BoxBugDies() {
         AudioSource.PlayClipAtPoint(transformBox, transform.position, 1f);
         yield return new WaitForSeconds(2.15f);
-        boxReal = Instantiate(box, this.transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+        boxReal = Instantiate(box, this.transform.position + new Vector3(0, 0.7f, 0), Quaternion.identity);
         boxReal.tag = "Ground";
         DestroySelf();
     }
