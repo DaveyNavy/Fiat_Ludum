@@ -4,6 +4,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     Animator animator;
+    [SerializeField] AudioClip enterDoor;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -12,6 +13,7 @@ public class Door : MonoBehaviour
     }
     public void OpenDoor()
     {
+        AudioSource.PlayClipAtPoint(enterDoor, transform.position, 1f);
         animator.Play("OpenDoor");
     }
 

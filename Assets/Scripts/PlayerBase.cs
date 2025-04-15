@@ -3,9 +3,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerBase : MonoBehaviour
 {
     [SerializeField] GameObject soul;
+    
+    [SerializeField] AudioSource walking;
     [SerializeField] public float speed;
 
     Vector2 movement = new Vector2(0, 0);
@@ -23,6 +26,7 @@ public class PlayerBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriterenderer = GetComponent<SpriteRenderer>();
+        walking = GetComponent<AudioSource>();
         if (Camera.main.orthographicSize > 5)
         {
             transform.localScale *= 1 + ((Camera.main.orthographicSize / 5) - 1) / 2;
@@ -33,6 +37,12 @@ public class PlayerBase : MonoBehaviour
         if (grounded && moving)
         {
             rb.position += new Vector2(movement.x * speed * Time.deltaTime, 0);
+        } 
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+            walking.enabled = true;
+        } else {
+            walking.enabled = false;
         }
     }
 
