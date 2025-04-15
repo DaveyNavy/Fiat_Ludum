@@ -8,6 +8,13 @@ public class Spring : MonoBehaviour
     [SerializeField] AudioClip bounce;
     float thrust = 17;
     GameObject player;
+    GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -21,12 +28,8 @@ public class Spring : MonoBehaviour
         }
     }
 
-
-
-
-
     IEnumerator waitForJump() {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(gameManager.numSpringSecs);
         player.GetComponent<BoxCollider2D>().isTrigger = false;
     }
 }

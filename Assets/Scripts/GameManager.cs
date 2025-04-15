@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject soul;
     [SerializeField] int numGoals = 1;
+    [SerializeField] public float numSpringSecs;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
