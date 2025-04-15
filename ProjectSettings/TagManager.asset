@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Wall
   - Goal
+  - SpecialSpike
   layers:
   - Default
   - TransparentFX
