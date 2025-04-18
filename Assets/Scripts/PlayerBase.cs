@@ -121,6 +121,7 @@ public class PlayerBase : MonoBehaviour
             rb.linearVelocity = new Vector2(0, 5);
             //transform.position = rb.transform.position + new Vector3(0, 1, 0);
             gameObject.GetComponent<Collider2D>().isTrigger = false;
+            grounded = false;
         }
     }
 }

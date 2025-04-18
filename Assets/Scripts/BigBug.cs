@@ -18,8 +18,9 @@ public class BigBug : PlayerBase
         if (collision.CompareTag("Ground") && isSpring)
         {
             isSpring = false;
-            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 5);
+            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 7);
             gameObject.GetComponent<Collider2D>().isTrigger = false;
+            grounded = false;
         }
         if (collision.CompareTag("Breakable"))
         {
