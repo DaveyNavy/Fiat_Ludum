@@ -19,6 +19,8 @@ public class KeyBug : PlayerBase
             gameManager.DecrementGoalsNeeded();
             Renderer r = GetComponent<Renderer>();
             r.enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             StartCoroutine(DestroySelfCoroutine());
         }
     }

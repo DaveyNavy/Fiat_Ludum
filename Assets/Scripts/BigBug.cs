@@ -15,6 +15,12 @@ public class BigBug : PlayerBase
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.CompareTag("Ground") && isSpring)
+        {
+            isSpring = false;
+            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 5);
+            gameObject.GetComponent<Collider2D>().isTrigger = false;
+        }
         if (collision.CompareTag("Breakable"))
         {
             breakableObject = null;

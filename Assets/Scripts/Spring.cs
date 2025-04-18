@@ -21,10 +21,10 @@ public class Spring : MonoBehaviour
         {
             Debug.Log("player collided");
             player = collision.gameObject;
-            player.GetComponent<BoxCollider2D>().isTrigger = true;
+            player.GetComponent<PlayerBase>().Spring();
             AudioSource.PlayClipAtPoint(bounce, transform.position, 1f);
-            player.GetComponent<Rigidbody2D>().AddForce(player.transform.up * thrust, ForceMode2D.Impulse);
-            StartCoroutine(waitForJump());
+            //player.GetComponent<Rigidbody2D>().AddForce(player.transform.up * thrust, ForceMode2D.Impulse);
+            //StartCoroutine(waitForJump());
         }
     }
 

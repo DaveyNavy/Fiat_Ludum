@@ -16,6 +16,7 @@ public class PlayerBase : MonoBehaviour
     public bool grounded;
     public int facingRight = 1;
     SpriteRenderer spriterenderer;
+    public bool isSpring = false;
 
     public Animator animator;
 
@@ -102,4 +103,25 @@ public class PlayerBase : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         grounded = false;
     }
+
+
+    public void Spring()
+    {
+        isSpring = true;
+        rb.linearVelocity = new Vector2(0, 15);
+        gameObject.GetComponent<Collider2D>().isTrigger = true;
+        transform.position = rb.transform.position + new Vector3(0, 1, 0);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ground"))
+        {
+            isSpring = false;
+            rb.linearVelocity = new Vector2(0, 5);
+            //transform.position = rb.transform.position + new Vector3(0, 1, 0);
+            gameObject.GetComponent<Collider2D>().isTrigger = false;
+        }
+    }
 }
+
