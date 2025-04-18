@@ -25,12 +25,6 @@ public class KeyBug : PlayerBase
         }
     }
 
-    /*
-    IEnumerator waitKeyAnim() {
-        animator.Play("KeyBugDie");
-        yield return new WaitForSeconds(1.45f);
-    }
-    */
     IEnumerator DestroySelfCoroutine()
     {
         yield return new WaitForSeconds(3.5f);

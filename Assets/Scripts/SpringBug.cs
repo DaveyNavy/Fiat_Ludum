@@ -43,7 +43,6 @@ public class SpringBug : PlayerBase
         AudioSource.PlayClipAtPoint(springTransform, transform.position, 1f);
         yield return new WaitForSeconds(1.15f);
         springReal = Instantiate(spring, this.transform.position, Quaternion.identity);
-        //springReal.tag = "Ground";
         DestroySelf();
     }
     private void OnDisable()
@@ -53,6 +52,4 @@ public class SpringBug : PlayerBase
             MakeSpring();
         }
     }
-
-    // SpringBugDie 1.15
 }
